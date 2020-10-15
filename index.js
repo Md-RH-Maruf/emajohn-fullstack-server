@@ -11,7 +11,9 @@ app.use(bodyParser.json());
 app.use(cors());
 const port = 5000
 
-
+app.get('/',(req,res) =>{
+    res.send("Hello from db it's working...");
+})
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
     const productsCollection = client.db(process.env.DB_NAME).collection("products");
